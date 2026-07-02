@@ -1,14 +1,8 @@
 import pool from "./conexao.js";
 
 export async function retornaMedicos() {
-  const conexao = await pool.getConnection();
-
-  const medicos_query = await conexao.query(
+  const res = await pool.query(
     "SELECT id, nome, telefone, email, descricao FROM medicos",
   );
-  const medicos = medicos_query[0];
-
-  conexao.release();
-
-  return medicos;
+  return res.rows;
 }

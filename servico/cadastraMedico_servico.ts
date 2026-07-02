@@ -6,14 +6,10 @@ export async function cadastraMedico(
   email: string,
   descricao: string,
 ) {
-  const conexao = await pool.getConnection();
-
-  const [resultado] = await conexao.query(
-    "INSERT INTO medicos (nome, telefone, email, descricao) VALUES (?, ?, ?, ?)",
+  const res = await pool.query(
+    "INSERT INTO medicos (nome, telefone, email, descricao) VALUES ($1, $2, $3, $4) RETURNING *",
     [nome, telefone, email, descricao],
   );
 
-  conexao.release();
-
-  return resultado;
+  return res.rows[0];
 }

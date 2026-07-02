@@ -1,26 +1,24 @@
 {
   "name": "api-contatos-clinica",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "tsx watch service.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "API para contatos da clínica",
+  "main": "dist/service.js",
   "type": "module",
+  "scripts": {
+    "dev": "tsx watch service.ts",
+    "build": "tsc",
+    "start": "node dist/service.js"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "mysql2": "^3.22.2"
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.6.0",
-    "npx": "^10.2.2",
-    "tsc": "^2.0.4",
+    "@types/pg": "^8.20.0",
     "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   }
